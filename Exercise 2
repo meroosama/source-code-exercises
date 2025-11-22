@@ -1,0 +1,47 @@
+Exercise 2
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication9;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author compufast
+ */
+public class JavaApplication9 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+     Scanner in = new Scanner(System.in);
+
+        System.out.println(" Exercise 2: Store Triangular Matrix in 1D Array ");
+        System.out.println("Enter n for an n x n symmetric matrix:");
+        int n = in.nextInt();
+
+        int[][] matrix = new int[n][n];
+
+        System.out.println("Enter the matrix:");
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                matrix[i][j] = in.nextInt();
+
+        int size = n * (n + 1) / 2;
+        int[] oneD = new int[size];
+
+        int index = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                oneD[index++] = matrix[i][j];
+            }
+        }
+
+        System.out.println("\n1D array (lower triangular stored):");
+        for (int x : oneD) System.out.print(x + " ");
+    }
+}
